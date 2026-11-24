@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FIAT TUNING - Klub Fanów Fiata</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#101216;color:#fff;font-family:Arial,sans-serif}
+header{background:#191d24;border-bottom:4px solid #e51d2a;padding:25px 15px;text-align:center}
+.logo{font-size:42px;font-weight:900;letter-spacing:3px}
+.logo span{color:#e51d2a}
+header p{color:#bbb}
+nav{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:20px}
+nav a,button{background:#e51d2a;color:white;padding:12px 17px;border:0;border-radius:7px;text-decoration:none;font-weight:bold;cursor:pointer}
+nav a:hover,button:hover{background:#b51220}
+.hero{padding:65px 20px;text-align:center;background:linear-gradient(130deg,#292e38,#15171c)}
+.hero h1{font-size:36px}
+.hero p{color:#ccc;font-size:18px}
+section{max-width:1050px;margin:35px auto;padding:20px}
+h2{border-left:5px solid #e51d2a;padding-left:12px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.card{background:#1d222a;padding:22px;border-radius:12px;border:1px solid #363d48}
+.card h3{color:#ff454f}
+.card p{color:#ccc}
+.rules{color:#ddd;line-height:2}
+footer{text-align:center;padding:30px;background:#191d24;color:#aaa;margin-top:40px}
+input,select{width:100%;padding:12px;margin:7px 0 15px;background:#101216;border:1px solid #555;color:white;border-radius:6px}
+label{font-size:14px;color:#ddd}
+.modal{display:none;position:fixed;inset:0;background:#000d;overflow:auto;padding:20px}
+.modal-content{background:#202630;max-width:500px;margin:30px auto;padding:25px;border-radius:12px}
+.close{float:right;background:#555}
+.note{color:#ffc85b;font-size:13px}
+</style>
+</head>
+<body>
+
+<header>
+<div class="logo">FIAT <span>TUNING</span></div>
+<p>Polska społeczność miłośników włoskiej motoryzacji 🇮🇹</p>
+<nav>
+<a href="#start">Start</a>
+<a href="#galeria">Galeria</a>
+<a href="#forum">Forum</a>
+<a href="#zasady">Regulamin</a>
+<button onclick="openForm()">REJESTRACJA</button>
+</nav>
+</header>
+
+<div class="hero" id="start">
+<h1>Witaj w świecie FIAT TUNING!</h1>
+<p>Twoje auto. Twoja pasja. Nasza społeczność.</p>
+<button onclick="openForm()">DOŁĄCZ DO KLUBU</button>
+</div>
+
+<section id="galeria">
+<h2>📸 Galeria Fiatów</h2>
+<div class="cards">
+<div class="card"><h3>Fiat Bravo</h3><p>Miejsce na zdjęcia projektów właścicieli Bravo.</p></div>
+<div class="card"><h3>Fiat Punto</h3><p>Pokaż swoją włoską maszynę!</p></div>
+<div class="card"><h3>Fiat 500</h3><p>Mały samochód, wielka pasja.</p></div>
+</div>
+</section>
+
+<section id="forum">
+<h2>💬 Forum klubowe</h2>
+<div class="cards">
+<div class="card"><h3>Mechanika</h3><p>Naprawy, silniki, diagnostyka i porady.</p></div>
+<div class="card"><h3>Tuning</h3><p>Felgi, zawieszenie, wygląd i modyfikacje.</p></div>
+<div class="card"><h3>Spotkania</h3><p>Rozmowy o zlotach i wspólnych wyjazdach.</p></div>
+</div>
+</section>
+
+<section id="zasady">
+<h2>🛡️ Regulamin FIAT TUNING</h2>
+<ul class="rules">
+<li>Szanujemy każdego użytkownika.</li>
+<li>Zakaz wyzwisk, gróźb, nękania i przemocy.</li>
+<li>Nie obrażamy cudzych samochodów.</li>
+<li>Nie publikujemy cudzych zdjęć bez zgody.</li>
+<li>Administrator może usuwać nieodpowiednie treści i blokować konta.</li>
+<li>Każdy odpowiada za publikowane przez siebie materiały.</li>
+</ul>
+</section>
+
+<footer>
+<strong>FIAT TUNING</strong><br>
+Jedna pasja. Jedna rodzina. Fiat! 🇮🇹
+</footer>
+
+<div class="modal" id="registration">
+<div class="modal-content">
+<button class="close" onclick="closeForm()">ZAMKNIJ</button>
+<h2>Rejestracja członka</h2>
+<form onsubmit="event.preventDefault();alert('To wersja demonstracyjna. Prawdziwa rejestracja wymaga podłączenia serwera.');">
+<label>Nick</label>
+<input required placeholder="Twój nick">
+<label>E-mail</label>
+<input type="email" required placeholder="Adres e-mail">
+<label>Model Fiata</label>
+<input required placeholder="Np. Fiat Bravo II">
+<label>Rocznik samochodu</label>
+<input type="number" required placeholder="Np. 2009">
+<label>Zdjęcie własnego Fiata</label>
+<input type="file" accept="image/*" required>
+<label>Hasło</label>
+<input type="password" minlength="8" required placeholder="Minimum 8 znaków">
+<label><input type="checkbox" required style="width:auto"> Akceptuję regulamin.</label>
+<label><input type="checkbox" required style="width:auto"> Potwierdzam, że mogę udostępnić zdjęcie samochodu.</label>
+<button type="submit">WYŚLIJ ZGŁOSZENIE</button>
+</form>
+<p class="note">Zgłoszenia i konta nie są jeszcze zapisywane. To demonstracja formularza.</p>
+</div>
+</div>
+
+<script>
+function openForm(){
+document.getElementById('registration').style.display='block';
+}
+function closeForm(){
+document.getElementById('registration').style.display='none';
+}
+</script>
+
+</body>
+</html>
+
+
